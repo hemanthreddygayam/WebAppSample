@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'Author Handle: ' + ${twitter.authorHandle}" />
+
+
+    <div th:unless="${#lists.isEmpty(twitter.tweetHandles)}">
+        <table>
+            <thead>
+            <tr>
+                <th>Author Pet name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sb : ${twitter.tweetHandles}">
+                <td th:text="${{sb}}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/tweetHandler">Search for another article</a>
+</body>
+</html>
